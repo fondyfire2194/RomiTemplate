@@ -4,12 +4,9 @@
 
 package frc.robot;
 
-import edu.wpi.first.wpilibj.RobotController;
 import edu.wpi.first.wpilibj.TimedRobot;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
-import frc.robot.subsystems.LeftSpark;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -55,8 +52,7 @@ public class Robot extends TimedRobot {
     // robot's periodic
     // block in order for anything in the Command-based framework to work.
     CommandScheduler.getInstance().run();
-    SD.putN1("RomiBattery3/4", RobotController.getBatteryVoltage() * .75);
-    SmartDashboard.putBoolean("Cal", calibrate);
+
 
   }
 
@@ -99,8 +95,7 @@ public class Robot extends TimedRobot {
     if (m_autonomousCommand != null) {
       m_autonomousCommand.cancel();
     }
-    m_robotContainer.m_drivetrain.resetEncoders();
-    m_robotContainer.m_drivetrain.resetGyro();
+    
   }
 
   /** This function is called periodically during operator control. */
